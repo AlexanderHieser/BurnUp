@@ -1,8 +1,0 @@
-<nb-card>
-  <nb-card-header>Settings</nb-card-header>
-  <nb-card-body >
-      <input type="text" style="margin-bottom: 16px" status="primary" nbInput fullWidth placeholder="Github Enterpise Instance" [(ngModel)]="gitHub.baseURL">
-      <input type="text" style="margin-bottom: 16px" status="warning" nbInput fullWidth placeholder="Access Token" [(ngModel)]="gitHub.accessToken">
-      <button nbButton (click)="updateCredentials()">Update</button>      
-  </nb-card-body>
-</nb-card>

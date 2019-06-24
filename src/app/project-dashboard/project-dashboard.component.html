@@ -1,0 +1,47 @@
+<nb-accordion multi>
+  <nb-accordion-item>
+    <nb-accordion-item-header>{{project?.name}}</nb-accordion-item-header>
+    <nb-accordion-item-body>
+      <p><span style="font-weight: bold">Author</span> {{project?.owner.login}}</p>
+      <p> <span style="font-weight: bold">URL</span> {{project?.owner.url}}</p>
+      <p> <span style="font-weight: bold">Description</span> {{project?.description}}</p>
+      <p> <span style="font-weight: bold">Created at</span> {{project?.created_at}}</p>
+      <p> <span style="font-weight: bold">Last updated at</span> {{project?.updated_at}}</p>
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+  <nb-accordion-item>
+    <nb-accordion-item-header>Status</nb-accordion-item-header>
+    <nb-accordion-item-body>
+      <nb-actions size="large" fullWidth>
+        <nb-action>
+          Open:
+        </nb-action>
+        <nb-action>
+          Closed:
+        </nb-action>
+        <nb-action>
+          Tags..
+        </nb-action>
+      </nb-actions>
+    </nb-accordion-item-body>
+  </nb-accordion-item>
+</nb-accordion>
+
+
+
+<nb-card>
+
+</nb-card>
+<nb-card size="medium">
+  <nb-card-header>
+    Issues
+  </nb-card-header>
+  <nb-list>
+    <nb-list-item *ngFor="let issue of issues">
+      <p> Name: {{ issue.title }}
+        Description: {{ issue.body }}
+        Comments: {{ issue.comments}}
+        State:{{ issue.state}}</p>
+    </nb-list-item>
+  </nb-list>
+</nb-card>
