@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GitHubAPIService {
 
-  accessToken = '7771d77cf181f63e2a081dc40ae0a2df85b10712';
+  accessToken = '066915e00a9803e560cecbb2ed58a2e9edc19cee';
   baseURL = 'https://api.github.com';
 
   projects: any;
@@ -15,6 +15,8 @@ export class GitHubAPIService {
 
 
   getRepositories() {
+    console.log("Token", this.accessToken, this.baseURL);
+    
     return new Promise<boolean>((resolve, reject) => {
       const options = new HttpHeaders({
         Authorization: 'token ' + this.accessToken

@@ -30,6 +30,8 @@ export class AppComponent {
     }];
 
   constructor(githubApi: GitHubAPIService) {
+    console.log("Get projects");
+    
     githubApi.getRepositories().then((data) => {
       let count = 0;
       githubApi.projects.forEach(element => {

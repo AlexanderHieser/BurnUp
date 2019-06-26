@@ -9,9 +9,9 @@ import { GitHubAPIService } from '../services/git-hub-api.service';
 })
 export class ProjectDashboardComponent implements OnInit {
 
-  project:any;
-  issues:any;
-  constructor(private route: ActivatedRoute, private github: GitHubAPIService) { 
+  project: any;
+  issues: any;
+  constructor(private route: ActivatedRoute, private github: GitHubAPIService) {
 
   }
 
@@ -20,14 +20,13 @@ export class ProjectDashboardComponent implements OnInit {
       console.log(param);
       if (this.github.projects) {
         this.project = this.github.projects[param.id];
-        console.log("getIssues",this.project)
-        this.github.getIssues("https://api.github.com/repos/AlexanderHieser/appmodeler/issues").then((data) =>  {
+        console.log('getIssues', this.project.issues_url);
+        this.github.getIssues(this.project.issues_url.replace('{/number}', '')).then((data) =>  {
           console.log(data);
           this.issues = data;
         });
       }
     });
-  
   }
 
 }
