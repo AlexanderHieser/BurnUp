@@ -1,0 +1,30 @@
+<nb-layout>
+    <nb-layout-column>
+        <h3>BurnIssue Setup</h3>
+        <nb-card>
+            <nb-card-body style="margin: 18px;">
+                <nb-stepper [linear]="linearMode" #stepper [linear]="linearMode" orientation="horizontal">
+                    <nb-step  [stepControl]="gitub" label="Github Access">
+                            <form  [formGroup]="github" >
+                            <input type="text" style="margin-bottom: 16px" status="primary" nbInput fullWidth
+                            placeholder="Github Enterpise Instance" [(ngModel)]="baseURL" formControlName="baseUrl">
+                            <input type="text" style="margin-bottom: 16px" status="warning" nbInput fullWidth
+                            placeholder="Access Token" [(ngModel)]="accessToken" formControlName="token">
+                            <button nbButton nbStepperPrevious>Next</button>
+                        </form>
+                    </nb-step>
+                    <nb-step label="Repositories">
+                        <ng-template #stepLabel>
+                            <div>
+                                step number two
+                            </div>
+                        </ng-template>
+                        // ... step content here
+                    </nb-step>
+           
+                </nb-stepper>
+
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+</nb-layout>

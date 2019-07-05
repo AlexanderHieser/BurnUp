@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { StorageServiceService } from './storage-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GitHubAPIService {
 
-  accessToken = '066915e00a9803e560cecbb2ed58a2e9edc19cee';
-  baseURL = 'https://api.github.com';
+  accessToken = '';
+  baseURL = '';
 
   projects: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, storage: StorageServiceService) { 
+    this.accessToken = storage.getAuthToken();
+    this.baseURL = storage.getEndpoint();
+  }
 
 
   getRepositories() {

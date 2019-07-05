@@ -4,12 +4,23 @@ import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
+import { SetupComponent } from './setup/setup.component';
+import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'project', component: ProjectDashboardComponent}
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'dashboard', component: MenuComponent,
+    children: [{
+      path: '', component: HomeComponent
+    },
+    {
+      path: 'settings', component: SettingsComponent
+    },
+    { path: 'project', component: ProjectDashboardComponent }
+    ]
+  },
+  { path: 'setup', component: SetupComponent }
 ];
 
 @NgModule({

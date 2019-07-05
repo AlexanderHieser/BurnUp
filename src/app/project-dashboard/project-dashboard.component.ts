@@ -21,12 +21,11 @@ export class ProjectDashboardComponent implements OnInit {
       if (this.github.projects) {
         this.project = this.github.projects[param.id];
         console.log('getIssues', this.project.issues_url);
-        this.github.getIssues(this.project.issues_url.replace('{/number}', '')).then((data) =>  {
+        this.github.getIssues(this.project.issues_url.replace('{/number}', '')).then((data) => {
           console.log(data);
           this.issues = data;
         });
       }
     });
   }
-
 }
